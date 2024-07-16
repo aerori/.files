@@ -1,4 +1,5 @@
 # ~/.config/yabai/yabairc
+# ~/.config/yabai/yabairc
 
 # bsp, stack or float
 yabai -m config layout bsp
@@ -6,11 +7,11 @@ yabai -m config layout bsp
 yabai -m config window_placement second_child
 
 # padding
-yabai -m config window_gap 12
-yabai -m config top_padding 4
-yabai -m config bottom_padding 4
-yabai -m config right_padding 4
-yabai -m config left_padding 4
+yabai -m config window_gap 4
+yabai -m config top_padding 2
+yabai -m config bottom_padding 2
+yabai -m config right_padding 2
+yabai -m config left_padding 2
 
 # mouse settings
 yabai -m config mouse_follows_focus on
@@ -21,5 +22,28 @@ yabai -m config mouse_action1 move
 yabai -m config mouse_action2 resize
 yabai -m config mouse_drop_action swap
 
+#move window to prev and next space
+shift + alt - p : yabai -m window --space prev;
+shift + alt - n : yabai -m window --space next;
+
+# rotate layout clockwise
+shift + alt - r : yabai -m space --rotate 270
+
+# flip along y-axis
+shift + alt - y : yabai -m space --mirror y-axis
+
+# flip along x-axis
+shift + alt - x : yabai -m space --mirror x-axis
+
+# toggle window float
+shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
+# stop/start/restart yabai
+ctrl + alt - q : yabai --stop-service
+ctrl + alt - s : yabai --start-service
+ctrl + alt - r : yabai --restart-service
+
 # disable yabai for these apps
 yabai -m rule --add app="^Discord$" manage=off
+yabai -m rule --add app="^Signal$" manage=off
+yabai -m rule --add app="^Affinity Photo 2$" manage=off
